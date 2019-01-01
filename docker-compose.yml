@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+    php:
+        container_name: spmf
+        build:
+            context: .
+        ports:
+            - "8080:80"
+        volumes:
+            - ./web:/var/www
+            - ./docker/apache.conf:/etc/apache2/sites-available/000-default.conf
+        tty: true

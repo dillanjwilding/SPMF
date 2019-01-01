@@ -1,0 +1,6 @@
+# Set default behavior
+* text=auto
+
+# Binary files should not be modified
+*.png binary
+*.jpg binary
