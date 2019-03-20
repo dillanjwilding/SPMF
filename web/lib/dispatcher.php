@@ -1,13 +1,11 @@
 <?php
 namespace Lib;
 
-class Dispatcher
-{
-    private $controller = 'IndexController';
-    private $action = 'index';
+class Dispatcher {
+    private /*string*/ $controller = 'IndexController';
+    private /*string*/ $action = 'index';
 
-    public function __construct()
-    {
+    public function __construct() {
         $url = (new Request())->url;
         if (strpos($url, '/') !== false) {
             $parts = explode('/', ltrim($url, '/'));
@@ -27,8 +25,7 @@ class Dispatcher
         }
     }
 
-    public function dispatch()
-    {
+    public function dispatch() : void {
         try {
             if (file_exists(ROOT . DS . 'app' . DS . 'controllers' . DS . $this->controller . '.php')) {
                 $controller = '\\App\\Controllers\\' . $this->controller;

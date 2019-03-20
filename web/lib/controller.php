@@ -7,18 +7,15 @@ class Controller
     protected $layout = 'default';
     protected $views;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->views = strtolower(str_replace('Controller', '', (new \ReflectionClass(get_called_class()))->getShortName()));
     }
 
-    public function setViewVariable(string $name, $value)
-    {
+    public function setViewVariable(string $name, $value) : void {
         $this->variables[$name] = $value;
     }
 
-    public function render(string $view)
-    {
+    public function render(string $view) : void {
         extract($this->variables);
         ob_start();
         try {
@@ -47,13 +44,11 @@ class Controller
         ob_end_flush();
     }
 
-    public function redirect(string $url)
-    {
+    public function redirect(string $url) : void {
         header("Location:$url");
     }
 
-    public function error(int $status, \Exception $error=null)
-    {
+    public function error(int $status, \Exception $error=null) : void {
         $this->views = 'errors';
         $this->setViewVariable('title', $status . ' Error');
         if (!empty($error)) {

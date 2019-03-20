@@ -33,7 +33,7 @@
             </div>
         </nav>
         <div class="container-fluid" style="margin-top: 55px; padding-top: 5px;">
-            <?php echo $content ?>
+            <?=$content?>
         </div>
     </body>
 </html>

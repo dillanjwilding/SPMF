@@ -1,11 +1,9 @@
 <?php
 namespace Lib\Debug;
 
-class Logger
-{
+class Logger {
     // @todo: Need to be more readable
-    public static function saveData($data)
-    {
+    public static function saveData($data) : void {
         // Change variables
         // Edit output format
         $toLog = print_r($data, true);

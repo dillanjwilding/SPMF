@@ -1,19 +1,16 @@
 <?php
 namespace Lib;
 
-class App
-{
-    private $config;
-    // private $logger;
+class App {
+    private /*Config*/ $config;
+    // private /*Logger*/ $logger;
 
-    public function __construct()
-    {
+    public function __construct() {
         session_start();
         $this->config = new Config();
     }
 
-    public function run()
-    {
+    public function run() : void {
         /* if ($this->config->ENV === 'development') {
             $this->logger = new Logger();
         } */
@@ -21,8 +18,7 @@ class App
         (new Dispatcher())->dispatch();
     }
 
-    private function setReporting()
-    {
+    private function setReporting() : void {
         // @todo: Fix this:
         if ($this->config->ENV === 'development') {
             error_reporting(E_ALL);

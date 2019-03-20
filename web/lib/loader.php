@@ -1,10 +1,8 @@
 <?php
 namespace Lib;
 
-class Loader
-{
-    public function __construct()
-    {
+class Loader {
+    public function __construct() {
         // Load library classes
         spl_autoload_register(function ($class) {
             $file = ROOT . DS . str_replace('\\', DS, strtolower($class)) . '.php';

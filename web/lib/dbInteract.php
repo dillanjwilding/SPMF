@@ -1,21 +1,17 @@
 <?php
 namespace Lib;
 
-abstract class dbInteract
-{
+abstract class DBInteract {
     protected $dsn = null; // For PDO
     protected $error = false; // Catch errors
-
     protected $connection = null;
 
-    public function __construct($action, $data)
-    {
+    public function __construct($action, $data) {
         $this->dsn = 'mysql:dbname=' . DATABASE_NAME . ';host=' . DATABASE_HOST;
         $this->connection = $this->connect($account, $pwd);
     }
 
-    private function connect($user, $password)
-    {
+    private function connect(string $user, string $password) : PDO {
         try {
             $connection = new PDO($this->dsn, $user, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
